@@ -2,7 +2,7 @@ import { getCustomRepository, Repository } from "typeorm";
 import { Message } from "../entities/Message";
 import { MessagesRepository } from "../repositories/MessagesRepository";
 
-interface ISettingsCreate {
+interface IMessagesCreate {
     admin_id?: string;
     text: string;
     user_id: string;
@@ -15,7 +15,7 @@ class MessagesService {
         this.messagesRepository = getCustomRepository(MessagesRepository);
     }
 
-    async create({ admin_id, text, user_id }: ISettingsCreate) {
+    async create({ admin_id, text, user_id }: IMessagesCreate) {
         const message = this.messagesRepository.create({
             admin_id,
             text,
